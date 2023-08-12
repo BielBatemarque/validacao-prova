@@ -8,8 +8,8 @@ import { DatabaseConnection } from '../database/database-connection';
 const db = DatabaseConnection.getConnection();
 
 const ViewUser = () => {
-  let [inputUserId, setInputUserId] = useState('');
-  let [userData, setUserData] = useState({});
+  const [inputUserId, setInputUserId] = useState('');
+  const [userData, setUserData] = useState({});
 
   let searchUser = () => {
     console.log(inputUserId);

@@ -5,7 +5,7 @@ import { DatabaseConnection } from '../database/database-connection';
 const db = DatabaseConnection.getConnection();
 
 const ViewAllUser = () => {
-  let [flatListItems, setFlatListItems] = useState([]);
+  const [flatListItems, setFlatListItems] = useState([]);
 
   useEffect(() => {
     db.transaction((tx) => {

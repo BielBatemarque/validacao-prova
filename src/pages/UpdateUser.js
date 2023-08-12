@@ -16,12 +16,12 @@ import { DatabaseConnection } from '../database/database-connection';
 const db = DatabaseConnection.getConnection();
 
 const UpdateUser = ({ navigation }) => {
-  let [inputUserId, setInputUserId] = useState('');
-  let [userName, setUserName] = useState('');
-  let [userContact, setUserContact] = useState('');
-  let [userAddress, setUserAddress] = useState('');
+  const [inputUserId, setInputUserId] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userContact, setUserContact] = useState('');
+  const [userAddress, setUserAddress] = useState('');
 
-  let updateAllStates = (name, contact, address) => {
+  const updateAllStates = (name, contact, address) => {
     setUserName(name);
     setUserContact(contact);
     setUserAddress(address);

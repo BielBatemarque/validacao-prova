@@ -7,9 +7,9 @@ import { DatabaseConnection } from '../database/database-connection';
 const db = DatabaseConnection.getConnection();
 
 const DeleteUser = ({ navigation }) => {
-  let [inputUserId, setInputUserId] = useState('');
+  const [inputUserId, setInputUserId] = useState('');
 
-  let deleteUser = () => {
+  const deleteUser = () => {
     db.transaction((tx) => {
       tx.executeSql(
         'DELETE FROM  table_user where user_id=?',
