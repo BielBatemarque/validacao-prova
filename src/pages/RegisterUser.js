@@ -15,10 +15,10 @@ const db = DatabaseConnection.getConnection();
 const RegisterUser = ({ navigation }) => {
   const [userName, setUserName] = useState('');
   const [userContact, setUserContact] = useState('');
-  const [userAddress, setUserAddress] = useState('');
+  const [userDate, setUserDate] = useState('');
 
   const register_user = () => {
-    console.log(userName, userContact, userAddress);
+    console.log(userName, userContact, userDate);
 
     if (!userName) {
       alert('Por favor preencha o nome !');
@@ -28,15 +28,15 @@ const RegisterUser = ({ navigation }) => {
       alert('Por favor preencha o contato');
       return;
     }
-    if (!userAddress) {
+    if (!userDate) {
       alert('Por favor preencha o endereço !');
       return;
     }
 
     db.transaction(function (tx) {
       tx.executeSql(
-        'INSERT INTO table_user (user_name, user_contact, user_address) VALUES (?,?,?)',
-        [userName, userContact, userAddress],
+        'INSERT INTO table_user (user_name, user_contact, user_date) VALUES (?,?,?)',
+        [userName, userContact, userDate],
         (tx, results) => {
           console.log('Results', results.rowsAffected);
           if (results.rowsAffected > 0) {
@@ -66,14 +66,14 @@ const RegisterUser = ({ navigation }) => {
               behavior="padding"
               style={{ flex: 1, justifyContent: 'space-between' }}>
               <Mytextinput
-                placeholder="Entre com o Nome"
+                placeholder="Nome"
                 onChangeText={
                   (userName) => setUserName(userName)
                 }
                 style={{ padding: 10 }}
               />
               <Mytextinput
-                placeholder="Entre com o Telefone"
+                placeholder="Telefone"
                 onChangeText={
                   (userContact) => setUserContact(userContact)
                 }
@@ -82,12 +82,12 @@ const RegisterUser = ({ navigation }) => {
                 style={{ padding: 10 }}
               />
               <Mytextinput
-                placeholder="Entre com o Endereço"
+                placeholder="Data de Nascimento"
                 onChangeText={
-                  (userAddress) => setUserAddress(userAddress)
+                  (userAddress) => setUserDate(userAddress)
                 }
                 maxLength={225}
-                numberOfLines={5}
+                numberOfLines={1}
                 multiline={true}
                 style={{ textAlignVertical: 'top', padding: 10 }}
               />

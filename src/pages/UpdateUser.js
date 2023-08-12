@@ -40,7 +40,7 @@ const UpdateUser = ({ navigation }) => {
             updateAllStates(
               res.user_name,
               res.user_contact,
-              res.user_address
+              res.user_date
             );
           } else {
             alert('Usuário não encontrado!');
@@ -66,13 +66,13 @@ const UpdateUser = ({ navigation }) => {
       return;
     }
     if (!userAddress) {
-      alert('Por Favor informe o endereço !');
+      alert('Por Favor informe o nascimento !');
       return;
     }
 
     db.transaction((tx) => {
       tx.executeSql(
-        'UPDATE table_user set user_name=?, user_contact=? , user_address=? where user_id=?',
+        'UPDATE table_user set user_name=?, user_contact=? , user_date=? where user_id=?',
         [userName, userContact, userAddress, inputUserId],
         (tx, results) => {
           console.log('Results', results.rowsAffected);

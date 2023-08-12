@@ -36,8 +36,8 @@ const ViewAllUser = () => {
         <Text style={styles.textheader}>Contato</Text>
         <Text style={styles.textbottom}>{item.user_contact}</Text>
 
-        <Text style={styles.textheader}>Endereço</Text>
-        <Text style={styles.textbottom}>{item.user_address}</Text>
+        <Text style={styles.textheader}>Data Nascimento</Text>
+        <Text style={styles.textbottom}>{item.user_date}</Text>
 
 
       </View>
