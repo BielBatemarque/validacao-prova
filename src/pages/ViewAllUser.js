@@ -13,7 +13,7 @@ const ViewAllUser = () => {
         'SELECT * FROM table_user',
         [],
         (tx, results) => {
-          var temp = [];
+          let temp = [];
           for (let i = 0; i < results.rows.length; ++i)
             temp.push(results.rows.item(i));
           setFlatListItems(temp);
@@ -22,7 +22,7 @@ const ViewAllUser = () => {
     });
   }, []);
 
-  let listItemView = (item) => {
+  const listItemView = (item) => {
     return (
       <View
         key={item.user_id}
