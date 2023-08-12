@@ -13,11 +13,11 @@ import { DatabaseConnection } from '../database/database-connection';
 const db = DatabaseConnection.getConnection();
 
 const RegisterUser = ({ navigation }) => {
-  let [userName, setUserName] = useState('');
-  let [userContact, setUserContact] = useState('');
-  let [userAddress, setUserAddress] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userContact, setUserContact] = useState('');
+  const [userAddress, setUserAddress] = useState('');
 
-  let register_user = () => {
+  const register_user = () => {
     console.log(userName, userContact, userAddress);
 
     if (!userName) {
